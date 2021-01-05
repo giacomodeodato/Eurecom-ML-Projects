@@ -1,7 +1,7 @@
 # EURECOM ML Projects
  A collection of projects regarding distributed machine learning, computer vision, bayesian modeling and deep learning
 
-## [Satellite images adjustment](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Satellite images adjustment](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Satellite%20image%20adjustment/Report/improc_lab3_deodato_patti.pdf)
 <p align="center">
 <img src="images/noise_comp.png" width="500">
 </p>
@@ -20,7 +20,7 @@
    Then, the radon transform have been displayed, commented and compared to the Hough transform.
  * <b>Post-processing: high level detection and interpretation</b>.
    After interpreting the Radon transform points, find the orientation of the image and rotate it.
-## [Music recommender system](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Music recommender system](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Music%20recommender%20system/Recommender%20System.ipynb)
 
  * Data Analysis
     * Data Schema
@@ -45,7 +45,7 @@
       * Mixing the approaches
   * Final Considerations
   
-## [Batch, mini-batch, stochastic and distributed gradient descent](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Batch, mini-batch, stochastic and distributed gradient descent](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Gradient%20descent/Gradient%20Descent.ipynb)
 <p align="center">
 <img src="images/sgd_img.png" width="640">
 </p>
@@ -55,7 +55,7 @@ This notebook contains multiple implementations of the gradient descent algorith
 Furthermore, stochastic gradient descent and mini-batch stocastic gradient descent are implemented and compared with the previous one. A deep analysis is performed regarding how each algorithm's results change with parameters such as the learning rate and the number of iterations.
 
 Finally, a distributed version of mini-batch gradient descent is implemented using PySpark and its followed by an analysis of the performance of all the algorithms in terms of dataset size.
-## [K-means, k-means++ and distributed k-means](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [K-means, k-means++ and distributed k-means](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/K%20Means/KMeans.ipynb)
 <img align="right" src="images/kmeans_img.png" width="300">
 
 As for the previous notebook, this one starts by analyzing the k-means algorithm and its implementation, then it is tested on a generated 2D dataset to have better visualization and it is compared with the sklearn implementation.
@@ -63,7 +63,7 @@ As for the previous notebook, this one starts by analyzing the k-means algorithm
 An analysis of convergence of datasets of different shapes underlines the important of centroids initialization and introduces the k-means++ technique for smart centroid initialization that is implemented too. Moreover, the elbow method to find the optimal value of the number of clusters is discussed and implemented.
 
 Finally, a distributed version of k-means is implemented with PySpark, the new algorithm is analyzed and compared with the serial implementation.
-## [Flight data analysis with SparkSQL](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Flight data analysis with SparkSQL](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Distributed%20flight%20data%20analysis/Distributed%20flight%20data%20analysis.ipynb)
 <img align="left" src="images/flights_img.png" width="300">
 
 The last notebook introduces the DataFrame API and its advantages with respèct to RDDs, then, DataFrames are built starting from a structured file and from an RDD.
@@ -72,9 +72,9 @@ This section is followed by the analysis of flights data using SparkSQL. Data ex
 
 The notebook ends with a bonus question regarding the analysis of other datasets and their relation with the used one.
 
-## [Image classification algorithms](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Image classification algorithms](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Image%20classification/Image_Classification.ipynb)
 
-## Digital image processing - [Image filtering (Matlab)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20Matlab/Image%20filtering/Report/improc_lab2_deodato.pdf),[Stereo images (Matlab)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20Matlab/Stereo%20image%20processing/Report/improc_lab5_deodato_patti.pdf),[Image filtering (OpenCV)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20OpenCV/imgprocessing.cpp)
+## Digital image processing - [Image filtering (Matlab)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20Matlab/Image%20filtering/Report/improc_lab2_deodato.pdf), [Stereo images (Matlab)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20Matlab/Stereo%20image%20processing/Report/improc_lab5_deodato_patti.pdf), [Image filtering (OpenCV)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20OpenCV/imgprocessing.cpp)
 This laboratory aims at analyzing the relation and performance of different kinds of filter in different domains:
  * Linear filtering in the frequency domain and analysis of the cutting frequency
  * Linear filtering in the spatial domain using the averaging filter varying its size and the noise intensity
@@ -87,7 +87,7 @@ Introduction to OpenCV, histogram equalization of the image and analysis of the 
 Processing of stereo images, stereo matching function to create disparity map with Sum of Absolute intensity Differences. Analysis of the result with different kernel sizes and images with different baselines. Depth computation and segmentation using the histogram of the distribution of grey values.
 
 Finally, production of an anaglyph for 3D vision using colour filter glasses given the source images.
-## [Financial risk estimation](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Financial risk estimation](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Financial%20risk%20estimation/Monte%20Carlo%20Simulation.ipynb)
  * Introduction to Monte Carlo Simulations
  * Illustrative Example
  * Common Distributions used in MCS
@@ -105,11 +105,11 @@ Finally, production of an anaglyph for 3D vision using colour filter glasses giv
    * Improving the distributions and the features
  * Summary
    
-## [House prices regression](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [House prices regression](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/House%20prices%20regression/House%20Prices%20Regression.ipynb)
 
 ## [Convolutional neural networks with tensorflow](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Convolutional%20neural%20networks/CNN.ipynb)
 
-## [Multi layer perceptron](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Multi layer perceptron](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Multi%20layer%20perceptron/MLP.ipynb)
 <p align="center">
 <img src="images/mlp_img.png" width="640">
 </p>
@@ -123,6 +123,6 @@ compare performances using networks with hidden layer of different size axplain 
 
 Finally we switched the trasfer function of the output layer with the softmax function and we used the cross-entropy loss, we tested the new network and underlined the improvements.
 
-## [Introduction to python packages, pySpark and the HDFS](https://github.com/giacomodeodato/Algorithmic_Machine_Learning/blob/master/01_RecommenderSystem.ipynb)
+## [Introduction to python packages, pySpark and the HDFS](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Introduction/Introduction.ipynb)
 The aim of this introductory lab is to get familiar with the Jupyter notebooks, python and its modules (Pandas, Matplotlib, Numpy). Finally this notebook contains a presentation of PySpark and how to interact with the HDFS, together with two examples of distributed code: word count and an analysis of night flights.
   
