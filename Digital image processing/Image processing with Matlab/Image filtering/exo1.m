@@ -1,0 +1,65 @@
+lena = imread('lena.png');
+fft = fftshift(fft2(lena));
+imgfft = uint8(log(1 + abs(fft)));
+figure;
+subplot(1, 3, 1);
+imshow(lena);
+title('original image');
+subplot(1, 3, 2);
+imshow(imgfft, []);
+title('2D spectrum');
+subplot(1, 3, 3);
+surf(uint8(log(1 + abs(fft))));
+title('3D spectrum');
+
+fcut = .5;
+mask = freqLPF(size(fft), fcut);
+figure;
+subplot(1, 2, 1);
+imshow(mask);
+title('shape of the low pass filter');
+subplot(1, 2, 2);
+mask2 = freqHPF(size(fft), fcut);
+imshow(mask2);
+title('shape of the high pass filter');
+
+img0 = cat(1, imgfft, lena);
+fcut = .05;
+mask = freqLPF(size(fft), fcut);
+filtered1 = fft.*mask;
+flow = uint8(log(1 + abs(filtered1)));
+rlow = uint8(ifft2(ifftshift(filtered1)));
+fcut = .4;
+mask = freqLPF(size(fft), fcut);
+filtered2 = fft.*mask;
+fmedium = uint8(log(1 + abs(filtered2)));
+rmedium = uint8(ifft2(ifftshift(filtered2)));
+fcut = .8;
+mask = freqLPF(size(fft), fcut);
+filtered3 = fft.*mask;
+fhigh = uint8(log(1 + abs(filtered3)));
+rhigh = uint8(ifft2(ifftshift(filtered3)));
+
+figure;
+subplot(2,4,1);
+imshow(lena);
+title('original spectrum');
+subplot(2,4,2);
+imshow(rlow);
+title('low cut frequency');
+subplot(2,4,3);
+imshow(rmedium);
+title('middle cut frequency');
+subplot(2,4,4);
+imshow(rhigh);
+title('high cut frequency');
+
+subplot(2,4,5);
+imshow(imgfft, []);
+subplot(2,4,6);
+imshow(flow, []);
+subplot(2,4,7);
+imshow(fmedium, []);
+subplot(2,4,8);
+imshow(fhigh, []);
+

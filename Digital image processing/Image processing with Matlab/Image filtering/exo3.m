@@ -1,0 +1,27 @@
+M = 64 * ones(256, 256);
+M((256-64)/2+1:(256-64)/2+64,(256-64)/2+1:(256-64)/2+64) = 192;
+noise = rand(256);
+nstr = 10;
+Mnoise = M + nstr * noise;
+avgfilter = fspecial('average', 9);
+Mavg = filter2(avgfilter, Mnoise);
+
+figure;
+subplot(2, 3, 1);
+imshow(uint8(M));
+title('original');
+subplot(2, 3, 2);
+imshow(uint8(Mnoise));
+title('noise strength: 10');
+subplot(2, 3, 3);
+imshow(uint8(Mavg));
+title('avg filter size: 9');
+subplot(2, 3, 4);
+imshow(uint8(medfilt2(Mnoise, [3, 3])));
+title('med filter size: 3');
+subplot(2, 3, 5);
+imshow(uint8(medfilt2(Mnoise, [5, 5])));
+title('med filter size: 5');
+subplot(2, 3, 6);
+imshow(uint8(medfilt2(Mnoise, [9, 9])));
+title('med filter size: 9');

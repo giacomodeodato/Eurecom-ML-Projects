@@ -1,0 +1,19 @@
+Exercise #1 Linear filtering in the frequency domain
+
+The geometrical shape of the filter is a circle because it corresponds to the intersection between the plane z = fcoupure and the 3D graph of R =  sqrt((X/m).^2+(Y/m).^2).
+The parameter fcoupure stands for fréquence de coupure, cutting frequency, it defines the limit between the frequencies that are going to be cutted off and those that will not. (see figure 2 from exo1.m for the shapes of a low pass filter and an high pass filter).
+When a low pass filter is used, the frequencies below the cutting frequency will pass and viceversa for an high pass filter, therefore the only change to be made in the code of freqLPF.m is at line 10: indices = find(R>fcoupure) instead of find(R<fcoupure).
+It can be noticed by changing the filtering frequency (see figure 3 from exo1.m) that, as it increases, the circle in the frequency domain becomes wider and the more the circle is smaller the more the image is blurred. The last statement is justified by the fact that the low pass filter cuts the higher frequencies that are the ones corresponding to the discontinuities in the image signal (the edges).
+
+Exercise #2 Linear filtering in the spatial domain
+
+The mosaic image produced by exo2.m shows three different filtering configurations.
+In the first one the noise intensity is 10 and the filter size is 3, the filter is not good enough to clean the noisy image as can be noticed.
+The second image has the same noise intensity but the filter size is increased to 9, in this way the image colors look cleaner but the image border and the edges between the inner and the outer squares are blurred.
+In the last example the filter size remains 9 while the noise intensity is 50, in this configuration the noise is too strong and the filter is not good enough to clean the image therefore the result is a noisy image with very blurred edges (worst case scenario).
+The three cases show variations in the noise intensity and the link between the size of the filter in the spatial and frequency domains. The averaging filter works as a low pass filter (it reduces noise but smooths the edges) and the more it is big in the spatial domain the more it is narrow in the frequency domain.
+
+Exercise #3 Non linear filtering
+
+The algorithm of the median filter returns for each pixel the median value of the pixels covered by the filter. The median filter performs a lot better than the average one, while the latter blurs the edges in order to perform the smoothing, the former is able to preserve the edges, therefore it returns a cleaner result (as can be seen in figure 1 from exo3.m).
+The main drawback of this filter can be noticed on the corners of the image: they are rounded due to the median filtering mechanism.
