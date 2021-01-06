@@ -7,19 +7,18 @@
 </p>
 
  * <b>Pre-processing: de-noising</b>.
-   After loading an image and adding some noise, compare the results of the application of three different filters:
+   After loading the image in Matlab, I added some noise and compared the results of the application of three different filters:
     * Averaging filter
     * Median filter
     * Wiener filter
  * <b>Processing: low level feature detection</b>.
-   In order to highlight the edges, three different approaches have been used and compared:
+   In order to highlight the edges, I compared the results of three approaches:
     * Gradient filter
     * Laplacian filter's zero crossings
     * Canny edge detector
-    
-   Then, the radon transform have been displayed, commented and compared to the Hough transform.
  * <b>Post-processing: high level detection and interpretation</b>.
-   After interpreting the Radon transform points, find the orientation of the image and rotate it.
+   I displayed and analyzed the Radon and Hough transforms. After interpreting the Radon transform points, I extracted the image orientation and rotated it.
+   
 ## [Music recommender system](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Music%20recommender%20system/Recommender%20System.ipynb)
 
  * Data Analysis
