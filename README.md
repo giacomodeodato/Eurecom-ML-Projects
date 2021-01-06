@@ -2,9 +2,7 @@
  A collection of projects regarding distributed machine learning, computer vision, bayesian modeling and deep learning
 
 ## [Satellite images adjustment](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Satellite%20image%20adjustment/Report/improc_lab3_deodato_patti.pdf)
-<p align="center">
-<img src="images/noise_comp.png" width="500">
-</p>
+<img align="right" src="images/noise_comp.png" width="400">
 
  * <b>Pre-processing: de-noising</b>.
    After loading the image in Matlab, I added some noise and compared the results of the application of three different filters:
@@ -20,29 +18,8 @@
    I displayed and analyzed the Radon and Hough transforms. After interpreting the Radon transform points, I extracted the image orientation and rotated it.
    
 ## [Music recommender system](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Music%20recommender%20system/Recommender%20System.ipynb)
-
- * Data Analysis
-    * Data Schema
-    * Descriptive Statistics
-    * Data Cleaning
-    * Correlation Graphs
-  * Statistical Models for Recommendations
-    * Introduction to Recommender Systems
-    * Collaborative Filtering
-    * Alternating Least Squares
-    * Distributed ALS
-  * Music Recommender System
-    * Using PySpark MLLib
-    * Evaluating Recommendation Quality
-    * Personalized Recommendations
-  * Experimental Explorations
-    * Outliers Removal
-    * Using the logarithm of the Ratings
-    * Hybrid Approach: collaborative filtering & content based recommendations
-      * Users clustering
-      * Features extraction
-      * Mixing the approaches
-  * Final Considerations
+After analyzing and cleaning a dataset publihsed by Audioscrobbler, I implemented a music recommender system in Python using collaborative filtering. I optimized the corresponding matrix factorization problem using the Alternating Least Squares algorithm both on a single machine and in a distributed fashion, exploiting Spark MLLib. I evaluated the performance by ranking the recommendations on artist held-out data.
+Finally, I developed a hybrid music recommender system that uses an internal hyper-parameter to balance between a collaborative filtering approach and a content-based one. This idea allows to make recommendations by exploiting the similarities both between users and between items (i.e. artists).
   
 ## [Batch, mini-batch, stochastic and distributed gradient descent](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Gradient%20descent/Gradient%20Descent.ipynb)
 <p align="center">
