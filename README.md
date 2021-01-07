@@ -4,17 +4,17 @@
 ## [Satellite images adjustment](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Satellite%20image%20adjustment/Report/improc_lab3_deodato_patti.pdf)
 <img align="right" src="images/noise_comp.png" width="400">
 
- * <b>Pre-processing: de-noising</b>.
-   After loading the image in Matlab, I added some noise and compared the results of the application of three different filters:
+ * <b>Denoising</b>.
+   After loading the image in Matlab, I added some noise and compared the results after the application of three different filters:
     * Averaging filter
     * Median filter
     * Wiener filter
- * <b>Processing: low level feature detection</b>.
-   In order to highlight the edges, I compared the results of three approaches:
+ * <b>Low level feature detection</b>.
+   In order to highlight the edges, I compared the performance of three approaches:
     * Gradient filter
     * Laplacian filter's zero crossings
     * Canny edge detector
- * <b>Post-processing: high level detection and interpretation</b>.
+ * <b>High level detection and interpretation</b>.
    I displayed and analyzed the Radon and Hough transforms. After interpreting the Radon transform points, I extracted the image orientation and rotated it.
    
 ## [Music recommender system](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Music%20recommender%20system/Recommender%20System.ipynb)
@@ -25,20 +25,12 @@ Finally, I developed a hybrid music recommender system that uses an internal hyp
 <p align="center">
 <img src="images/sgd_img.png" width="640">
 </p>
+I manually implemented batch, mini-batch and stochastic gradient descent using Python and numpy and compared their performance on a regression problem. I analyzed the relation between the different algorithm versions by changing the values of their paramenters (learning rate, the number of iterations, batch size). Finally, I implemented the distributed version of mini-batch gradient descent using PySpark and analyzed the performance of all the algorithms in terms of dataset size and execution time.
 
-This notebook contains multiple implementations of the gradient descent algorithm. At first, the results obtained using the scipy library are observed, then the algorithm is compared with a numpy implementation of batch gradient descent.
-
-Furthermore, stochastic gradient descent and mini-batch stocastic gradient descent are implemented and compared with the previous one. A deep analysis is performed regarding how each algorithm's results change with parameters such as the learning rate and the number of iterations.
-
-Finally, a distributed version of mini-batch gradient descent is implemented using PySpark and its followed by an analysis of the performance of all the algorithms in terms of dataset size.
 ## [K-means, k-means++ and distributed k-means](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/K%20Means/KMeans.ipynb)
 <img align="right" src="images/kmeans_img.png" width="300">
+I studied and implemented the k-means algorithm using Python and numpy. I analyzed the convergence of the algorithm on different 2D datasets of different shapes to easily visualize the results. I implemented smart centroid initialization in k-means++ to improve the clustering of unconventional shapes and I used the elbow method to find the optimal number of clusters. Finally, I implemented the distributed version of k-means with PySpark and compared it with the serial implementation.
 
-As for the previous notebook, this one starts by analyzing the k-means algorithm and its implementation, then it is tested on a generated 2D dataset to have better visualization and it is compared with the sklearn implementation.
-
-An analysis of convergence of datasets of different shapes underlines the important of centroids initialization and introduces the k-means++ technique for smart centroid initialization that is implemented too. Moreover, the elbow method to find the optimal value of the number of clusters is discussed and implemented.
-
-Finally, a distributed version of k-means is implemented with PySpark, the new algorithm is analyzed and compared with the serial implementation.
 ## [Flight data analysis with SparkSQL](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Distributed%20flight%20data%20analysis/Distributed%20flight%20data%20analysis.ipynb)
 <img align="left" src="images/flights_img.png" width="300">
 
