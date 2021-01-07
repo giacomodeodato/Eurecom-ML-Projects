@@ -33,28 +33,21 @@ I studied and implemented the k-means algorithm using Python and numpy. I analyz
 
 ## [Flight data analysis with SparkSQL](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Distributed%20flight%20data%20analysis/Distributed%20flight%20data%20analysis.ipynb)
 <img align="left" src="images/flights_img.png" width="300">
-
-The last notebook introduces the DataFrame API and its advantages with respèct to RDDs, then, DataFrames are built starting from a structured file and from an RDD.
-
-This section is followed by the analysis of flights data using SparkSQL. Data exploration is divided in three main sections: basic queries, flight volume statistics and additional queries. Data visualization is performed using the seaborn module.
-
-The notebook ends with a bonus question regarding the analysis of other datasets and their relation with the used one.
+I analyzed a flight dataset using the DataFrame API that provides a better abstraction over distributed data with respect to RDDs (Resilient Distributed Dataset), the basic abstraction in Spark. I performed data exploration and analysis using pandas and SparkSQL, and I built insightful visualizations using seaborn and matplotlib. Finally, I integrated the original dataset with airport, carrier, plane and weather data to answer additional exploratory questions.
 
 ## [Image classification algorithms](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Image%20classification/Image_Classification.ipynb)
+<img align="center" src="images/naive_bayes.png">
+I performed classification over the Fashion MNIST and CIFAR10 datasets using different models. I implemented the naive Bayes classifier and Bayesian regression using Python and numpy following the scikit-learn declaration style. I analyzed the performance of these models in terms of error, accuracy and confusion matrices, and I highlighted the strenght and weaknesses of the two approaches (clearly, Bayesian regression does not fit the classification task). Furthermore, I implemented a convolutional neural network using pytorch, I trained it on the Fashion MNIST dataset and I analyzed the convolutional filters. Finally, I explored possible integrations of the naive bayes features in the convolutional neural network.
 
 ## Digital image processing - [Image filtering (Matlab)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20Matlab/Image%20filtering/Report/improc_lab2_deodato.pdf), [Stereo images (Matlab)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20Matlab/Stereo%20image%20processing/Report/improc_lab5_deodato_patti.pdf), [Image filtering (OpenCV)](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Digital%20image%20processing/Image%20processing%20with%20OpenCV/imgprocessing.cpp)
-This laboratory aims at analyzing the relation and performance of different kinds of filter in different domains:
+I analyzed the relation and performance of different filters and domains using MatLab and OpenCV:
  * Linear filtering in the frequency domain and analysis of the cutting frequency
  * Linear filtering in the spatial domain using the averaging filter varying its size and the noise intensity
  * Non linear filtering with the median filter and its performance with respect to the linear one.
- 
-Introduction to OpenCV, histogram equalization of the image and analysis of the different filters and edge detectors previously seen.
 
 <img align="right" src="images/disp_map.png" width="200">
+Using MatLab, I processed stereo images, I implemented a stereo matching function to create the disparity map with the Sum of Absolute intensity Differences (SAD). I analysed the result with different kernel sizes and used images with different baselines. I computed the depth of the image and performed segmentation using the histogram of the distribution of grey values. Finally, I produced an anaglyph for 3D vision using colour filter glasses given the source images.
 
-Processing of stereo images, stereo matching function to create disparity map with Sum of Absolute intensity Differences. Analysis of the result with different kernel sizes and images with different baselines. Depth computation and segmentation using the histogram of the distribution of grey values.
-
-Finally, production of an anaglyph for 3D vision using colour filter glasses given the source images.
 ## [Financial risk estimation](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Financial%20risk%20estimation/Monte%20Carlo%20Simulation.ipynb)
  * Introduction to Monte Carlo Simulations
  * Illustrative Example
