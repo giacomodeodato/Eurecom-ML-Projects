@@ -23,14 +23,16 @@ After analyzing and cleaning a dataset publihsed by Audioscrobbler, I implemente
 Finally, I developed a hybrid music recommender system that uses an internal hyper-parameter to balance between a collaborative filtering approach and a content-based one. This idea allows to make recommendations by exploiting the similarities both between users and between items (i.e. artists).
   
 ## [Batch, mini-batch, stochastic and distributed gradient descent](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Gradient%20descent/Gradient%20Descent.ipynb)
-<img align="right" src="images/sgd_img.png" width="300">
+<img align="right" src="images/sgd_img.png" width="350">
 I manually implemented batch, mini-batch and stochastic gradient descent using Python and numpy and compared their performance on a regression problem. I analyzed the relation between the different algorithm versions by changing the values of their paramenters (learning rate, the number of iterations, batch size). Finally, I implemented the distributed version of mini-batch gradient descent using PySpark and analyzed the performance of all the algorithms in terms of dataset size and execution time.
-
-<img align="right" src="images/kmeans_img.png" width="300">
+<br>
+<br>
+<img align="right" src="images/kmeans_img.png" width="250">
 
 ## [K-means, k-means++ and distributed k-means](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/K%20Means/KMeans.ipynb)
 I studied and implemented the k-means algorithm using Python and numpy. I analyzed the convergence of the algorithm on different 2D datasets of different shapes to easily visualize the results. I implemented smart centroid initialization in k-means++ to improve the clustering of unconventional shapes and I used the elbow method to find the optimal number of clusters. Finally, I implemented the distributed version of k-means with PySpark and compared it with the serial implementation.
-
+<br>
+<br>
 <img align="right" src="images/flights_img.png" width="300">
 
 ## [Flight data analysis with SparkSQL](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Distributed%20flight%20data%20analysis/Distributed%20flight%20data%20analysis.ipynb)
