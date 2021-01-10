@@ -49,24 +49,14 @@ I analyzed the relation and performance of different filters and domains using M
 Using MatLab, I processed stereo images, I implemented a stereo matching function to create the disparity map with the Sum of Absolute intensity Differences (SAD). I analysed the result with different kernel sizes and used images with different baselines. I computed the depth of the image and performed segmentation using the histogram of the distribution of grey values. Finally, I produced an anaglyph for 3D vision using colour filter glasses given the source images.
 
 ## [Financial risk estimation](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Financial%20risk%20estimation/Monte%20Carlo%20Simulation.ipynb)
- * Introduction to Monte Carlo Simulations
- * Illustrative Example
- * Common Distributions used in MCS
- * Estimating Financial Risk of a Portfolio of Stocks
-   * Terminology and Context
-   * Data Preprocessing
-     * Market factors and stocks
-     * Missing values
-     * Time alignment
-   * A linear relationship between factors and stocks
-   * Featurization of the factors
-   * Defining distributions
-   * Generating samples and calculating Value at Risk (VaR)
-   * Evaluating results with backtesting method
-   * Improving the distributions and the features
- * Summary
+<img align="right" src="images/montecarlo.png" width="200">
+I estimated the financial risk of a portfolio of stocks including GSPC, IXIC, the return of crude oil and the return of treasury bonds. In order to do so, I calculated the Value at Risk (VaR) of a two weeks interval with 95% confidence level and the associated VaR confidence interval. After data analysis and cleaning, I approximated the distributions of the market factors using Kernel Density Estimation and I used featurization to improve the performance of a simple linear regression model. Finally, I used Monte Carlo sampling and p-value testing to estimate the risk and I backtested on historical data to validate the results.
    
 ## [House prices regression](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/House%20prices%20regression/House%20Prices%20Regression.ipynb)
+<img align="center" src="images/houseprices.png" width="200">
+I worked with a house prices dataset made of 81 features for 1200 entries (train data). I started by performing univariate analysis of the sale price and the individual features (after splitting them in categorical, ordinal and numerical). I performed missing values cleaning and imputation, outliers removal, and I encoded ordinal and categorical features. To finalize the preprocessing I performed feature engineering, normalization and scaling, and I selected the most relevant features using mutual information and the associated p-value. 
+
+I started predicting the sale price using a simple linear regression without regularization to get a baseline of the performance. Successively, I explored the effects of different regularizations: Lasso, Ridge and ElasticNet, using a grid search approach to find the best hyper-parameters. Moreover, I trained a more complex model, XGBoost, and fine tuned its parameters using both grid search and Bayesian optimization. Finally, I evaluated two model ensemblig approaches: averaging and stacking.
 
 ## [Convolutional neural networks with tensorflow](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Convolutional%20neural%20networks/CNN.ipynb)
 
