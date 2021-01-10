@@ -59,21 +59,17 @@ I worked with a house prices dataset made of 81 features for 1200 entries (train
 I started predicting the sale price using a simple linear regression without regularization to get a baseline of the performance. Successively, I explored the effects of different regularizations: Lasso, Ridge and ElasticNet, using a grid search approach to find the best hyper-parameters. Moreover, I trained a more complex model, XGBoost, and fine tuned its parameters using both grid search and Bayesian optimization. Finally, I evaluated two model ensemblig approaches: averaging and stacking.
 
 ## [Convolutional neural networks with tensorflow](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Convolutional%20neural%20networks/CNN.ipynb)
+<img align="center" src="images/lenet5.png" width="200">
+I initially loaded the MNIST dataset and trained a logistic regression model using tensorflow. Using tensorboard, I visualized the computational graph, getting an overview of the model, and monitored the accuracy and loss learning curves. Then, I implemented LeNet 5 architecture and compared the performance obtained using standard gradient descent and Adam. Finally, I added dropout layers to the original architecture to improve the robustness of the model and its performance on test data.
 
 ## [Multi layer perceptron](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Multi%20layer%20perceptron/MLP.ipynb)
 <p align="center">
 <img src="images/mlp_img.png" width="640">
 </p>
+I manually implemented a Multi Layer Percepron using the sigmoid transfer function and the Mean Squared Error loss function. Initially, I wrote down the calculation to execute one forward and one backward step on some artificial values, in order to see how the weights were updated. Then, I used numpy to implement a vectorized version of the feedforward and backpropagation algorithms and I added the methods to the NeuralNetwork class.
 
-In this notebook we started building a Multi Layer Percepron using the sigmoid transfer function and Mean Squared Error loss function.
-Initially we wrote down the calculation to execute one forward and one backward step on some artificial values, in order to see how the weights were updated. Then, we used numpy to implement a vectorized version of the feedforward and backprpagation algorithm and we added the methods to the NeuralNetwork class.
-
-In the second part of the notebook we loaded the MNIST dataset and we defined a trin method for the NeuralNetwork class. In order to be more flexible we defined a general mini-batch gradient descent training so that we could compare the different performances of stochastic, batch and mini-batch gradient descent by changing the batch size (1 for stochastic; len(dataset) for batch; len(minibatch) for mini-batch).
-Furthermore we tested the accuracy of neural networks with different hidden layer size and we compared and explained the results.
-compare performances using networks with hidden layer of different size axplain the results
-
-Finally we switched the trasfer function of the output layer with the softmax function and we used the cross-entropy loss, we tested the new network and underlined the improvements.
+In the second part of the notebook, I loaded the MNIST dataset and defined a train method for the NeuralNetwork class. In order to be more flexible, I defined a general mini-batch gradient descent training so that I could compare the different performances of stochastic, batch and mini-batch gradient descent by changing the batch size (1 for stochastic; len(dataset) for batch; len(minibatch) for mini-batch). Furthermore, I tested the accuracy of neural networks with different hidden layer size, and I compared and explained the results. Finally, I changed the trasfer function of the output layer with the softmax function and implemented the cross-entropy loss to improve the neural network performance.
 
 ## [Introduction to python packages, pySpark and the HDFS](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Introduction/Introduction.ipynb)
-The aim of this introductory lab is to get familiar with the Jupyter notebooks, python and its modules (Pandas, Matplotlib, Numpy). Finally this notebook contains a presentation of PySpark and how to interact with the HDFS, together with two examples of distributed code: word count and an analysis of night flights.
+The aim of this introductory lab is to get familiar with the Jupyter notebooks, python and its modules (Pandas, Matplotlib, Numpy). Finally, this notebook contains a presentation of PySpark and how to interact with the HDFS, together with two examples of distributed code: word count and an analysis of night flights.
   
