@@ -28,10 +28,12 @@ I manually implemented batch, mini-batch and stochastic gradient descent using P
 <br>
 <br>
 <br>
-<img align="right" src="images/kmeans_img.png" width="250">
+<p>
+<img align="right" src="images/kmeans_img.png" width="200">
 
 ## [K-means, k-means++ and distributed k-means](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/K%20Means/KMeans.ipynb)
 I studied and implemented the k-means algorithm using Python and numpy. I analyzed the convergence of the algorithm on different 2D datasets of different shapes to easily visualize the results. I implemented smart centroid initialization in k-means++ to improve the clustering of unconventional shapes and I used the elbow method to find the optimal number of clusters. Finally, I implemented the distributed version of k-means with PySpark and compared it with the serial implementation.
+</p>
 <br>
 <br>
 <img align="right" src="images/flights_img.png" width="300">
