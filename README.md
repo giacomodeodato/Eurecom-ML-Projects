@@ -1,5 +1,5 @@
 # Eurecom ML Projects
-A collection of machine learning projects following some of the courses I took while at Eurecom: Algorithmic Machine Learning, Digital Image Processing ([Notes]()), Advanced Statistical Inference, Distributed Systems and Cloud Computing ([Notes]()) and Deep Learning.
+A collection of machine learning projects following some of the courses I took while at Eurecom: Algorithmic Machine Learning, Digital Image Processing ([Notes](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/notes/ImProc/summary.pdf)), Advanced Statistical Inference, Distributed Systems and Cloud Computing ([Notes](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/notes/Cloud/CLOUDS_summary.pdf)) and Deep Learning.
 
 ## [Satellite images adjustment](https://github.com/giacomodeodato/EURECOM-ML-Projects/blob/main/Satellite%20image%20adjustment/Report/improc_lab3_deodato_patti.pdf)
 <img align="right" src="images/noise_comp.png" width="400">
