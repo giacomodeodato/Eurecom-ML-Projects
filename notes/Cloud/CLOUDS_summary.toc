@@ -1,0 +1,215 @@
+\contentsline {chapter}{\numberline {1}Scalable Algorithm Design}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Key Principles}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}The Programming Model}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Functional programming roots: Map and Fold}{2}{subsection.1.3.1}
+\contentsline {subsubsection}{Map phase}{2}{subsubsection*.2}
+\contentsline {subsubsection}{Fold phase}{3}{subsubsection*.3}
+\contentsline {subsection}{\numberline {1.3.2}Hadoop MapReduce}{3}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Example: word counter}{3}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Combiners}{4}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.3.5}Example: computing the mean}{4}{subsection.1.3.5}
+\contentsline {section}{\numberline {1.4}Basic Design Patterns}{5}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Algorithm design}{5}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Local aggregation: In-Memory combiners}{6}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}Pairs and stripes}{7}{subsection.1.4.3}
+\contentsline {subsubsection}{Problem: Building word co-occurence matrices for large corpora}{7}{subsubsection*.7}
+\contentsline {subsubsection}{The pairs approach}{7}{subsubsection*.8}
+\contentsline {subsubsection}{The stripes approach}{7}{subsubsection*.9}
+\contentsline {subsubsection}{Pairs-stripes comparison}{7}{subsubsection*.11}
+\contentsline {subsection}{\numberline {1.4.4}Order inversion}{8}{subsection.1.4.4}
+\contentsline {subsubsection}{Problem: Building relative co-occurrence matrix}{8}{subsubsection*.12}
+\contentsline {subsubsection}{A basic approach}{8}{subsubsection*.13}
+\contentsline {chapter}{\numberline {2}Hadoop Internals}{10}{chapter.2}
+\contentsline {subsubsection}{Terminology}{10}{subsubsection*.14}
+\contentsline {section}{\numberline {2.1}Hadoop Distributed File System}{10}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Motivations}{10}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Blocks}{11}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Architecture}{11}{subsection.2.1.3}
+\contentsline {subsubsection}{File read}{12}{subsubsection*.16}
+\contentsline {subsubsection}{File write}{12}{subsubsection*.17}
+\contentsline {subsubsection}{HDFS coherency model}{12}{subsubsection*.18}
+\contentsline {section}{\numberline {2.2}Hadhoop MapReduce}{12}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Anatomy of a job run}{12}{subsection.2.2.1}
+\contentsline {subsubsection}{Job submission}{12}{subsubsection*.20}
+\contentsline {subsubsection}{Job initialization}{13}{subsubsection*.21}
+\contentsline {subsection}{\numberline {2.2.2}Scheduling}{13}{subsection.2.2.2}
+\contentsline {subsubsection}{Task assignment}{13}{subsubsection*.22}
+\contentsline {subsubsection}{Task execution}{14}{subsubsection*.23}
+\contentsline {subsection}{\numberline {2.2.3}Handling failures}{14}{subsection.2.2.3}
+\contentsline {subsubsection}{Task failure}{14}{subsubsection*.24}
+\contentsline {subsubsection}{TaskTracker failure}{14}{subsubsection*.25}
+\contentsline {subsubsection}{JobTracker failure}{15}{subsubsection*.26}
+\contentsline {subsection}{\numberline {2.2.4}Shuffle and sort: Map side}{15}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Shuffle and sort: Reduce side}{16}{subsection.2.2.5}
+\contentsline {chapter}{\numberline {3}Apache Spark Internals}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction and Motivations}{17}{section.3.1}
+\contentsline {section}{\numberline {3.2}Anatomy of a Spark Application}{18}{section.3.2}
+\contentsline {section}{\numberline {3.3}Spark Deployments}{19}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Benefits of the Spark architecture}{20}{subsection.3.3.1}
+\contentsline {subsubsection}{Isolation}{20}{subsubsection*.33}
+\contentsline {subsubsection}{Low-overhead}{20}{subsubsection*.34}
+\contentsline {subsubsection}{Sharing data}{20}{subsubsection*.35}
+\contentsline {subsubsection}{Resource allocation}{21}{subsubsection*.36}
+\contentsline {section}{\numberline {3.4}Resilient Distributed Datasets}{21}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}What is an RDD}{21}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}RDD abstraction and interfaces}{21}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}RDD examples}{22}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}RDD dependecy types}{22}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}Operations on RDDs: Transformations and Actions}{23}{subsection.3.4.5}
+\contentsline {section}{\numberline {3.5}Spark Word Count}{23}{section.3.5}
+\contentsline {subsubsection}{The code}{23}{subsubsection*.40}
+\contentsline {subsubsection}{The DAG}{23}{subsubsection*.42}
+\contentsline {subsubsection}{The execution plan}{24}{subsubsection*.43}
+\contentsline {subsubsection}{The Shuffle phase}{24}{subsubsection*.44}
+\contentsline {chapter}{\numberline {4}Cluster Schedulers}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Cluster Scheduling Principles}{25}{section.4.1}
+\contentsline {subsubsection}{Scheduling}{25}{subsubsection*.45}
+\contentsline {subsubsection}{Multiplexing}{25}{subsubsection*.46}
+\contentsline {subsubsection}{Scalability}{25}{subsubsection*.47}
+\contentsline {subsubsection}{Workload}{25}{subsubsection*.48}
+\contentsline {section}{\numberline {4.2}Taxonomy of scheduling design issues}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Schedulers Architectures}{26}{section.4.3}
+\contentsline {subsubsection}{Monolithic}{26}{subsubsection*.49}
+\contentsline {subsubsection}{Statically partitioned}{27}{subsubsection*.50}
+\contentsline {subsubsection}{Two-levels}{27}{subsubsection*.52}
+\contentsline {subsubsection}{Shared-state}{27}{subsubsection*.53}
+\contentsline {section}{\numberline {4.4}YARN}{28}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Previous limitations and improvements}{28}{subsection.4.4.1}
+\contentsline {subsubsection}{Hadoop 0.1 limitations}{28}{subsubsection*.54}
+\contentsline {subsubsection}{YARN improvements}{28}{subsubsection*.55}
+\contentsline {subsection}{\numberline {4.4.2}Architecture and Core Components}{28}{subsection.4.4.2}
+\contentsline {subsubsection}{Schedulers}{29}{subsubsection*.56}
+\contentsline {subsubsection}{Resource Manager [RM]}{29}{subsubsection*.57}
+\contentsline {subsubsection}{Node Manager [NM]}{29}{subsubsection*.58}
+\contentsline {subsubsection}{Resource containers}{29}{subsubsection*.59}
+\contentsline {subsubsection}{Application master [AM]}{30}{subsubsection*.60}
+\contentsline {subsection}{\numberline {4.4.3}Fault tolerance}{30}{subsection.4.4.3}
+\contentsline {subsubsection}{Container failure}{30}{subsubsection*.61}
+\contentsline {subsubsection}{AM failure}{30}{subsubsection*.62}
+\contentsline {subsubsection}{NM failure}{30}{subsubsection*.63}
+\contentsline {subsubsection}{RM failure}{30}{subsubsection*.64}
+\contentsline {section}{\numberline {4.5}MESOS}{30}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Introduction and Motivations}{30}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Architecture}{32}{subsection.4.5.2}
+\contentsline {subsubsection}{Mesos Master}{32}{subsubsection*.65}
+\contentsline {subsubsection}{Mesos Frameworks}{32}{subsubsection*.66}
+\contentsline {subsubsection}{Resource allocation and revocation}{32}{subsubsection*.67}
+\contentsline {subsubsection}{Performance Isolation}{33}{subsubsection*.68}
+\contentsline {subsubsection}{Fault Tolerance}{33}{subsubsection*.69}
+\contentsline {subsection}{\numberline {4.5.3}Behaviour}{33}{subsection.4.5.3}
+\contentsline {subsubsection}{Definitions and metrics}{33}{subsubsection*.70}
+\contentsline {subsubsection}{Homogeneous and heterogeneous tasks}{34}{subsubsection*.71}
+\contentsline {subsubsection}{Limitations of Distributed Scheduling}{34}{subsubsection*.72}
+\contentsline {section}{\numberline {4.6}BORG}{34}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Introduction}{34}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}User Perspective}{34}{subsection.4.6.2}
+\contentsline {subsubsection}{Workloads}{35}{subsubsection*.73}
+\contentsline {subsubsection}{Clusters and cells}{35}{subsubsection*.74}
+\contentsline {subsubsection}{Jobs and tasks}{35}{subsubsection*.75}
+\contentsline {subsubsection}{Allocs}{36}{subsubsection*.77}
+\contentsline {subsubsection}{Priority, Quota and Admission control}{37}{subsubsection*.78}
+\contentsline {subsubsection}{Naming services}{37}{subsubsection*.79}
+\contentsline {subsubsection}{Monitoring services}{37}{subsubsection*.80}
+\contentsline {subsection}{\numberline {4.6.3}Architecture}{38}{subsection.4.6.3}
+\contentsline {subsubsection}{Borg master}{38}{subsubsection*.81}
+\contentsline {subsubsection}{Scheduling}{38}{subsubsection*.82}
+\contentsline {subsubsection}{Borglet}{39}{subsubsection*.83}
+\contentsline {subsubsection}{Scalability}{40}{subsubsection*.84}
+\contentsline {subsection}{\numberline {4.6.4}Behaviour}{40}{subsection.4.6.4}
+\contentsline {subsubsection}{Availability}{40}{subsubsection*.85}
+\contentsline {subsubsection}{System Utilization}{40}{subsubsection*.86}
+\contentsline {subsubsection}{Isolation}{40}{subsubsection*.87}
+\contentsline {subsection}{\numberline {4.6.5}Lesson Learned}{41}{subsection.4.6.5}
+\contentsline {subsubsection}{The bad}{41}{subsubsection*.88}
+\contentsline {subsubsection}{The good}{41}{subsubsection*.89}
+\contentsline {chapter}{\numberline {5}SparkSQL}{42}{chapter.5}
+\contentsline {section}{\numberline {5.1}Relational Algebra}{42}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Operators}{42}{subsection.5.1.1}
+\contentsline {subsubsection}{Selection $\sigma _C(R)$}{42}{subsubsection*.90}
+\contentsline {subsubsection}{Projection $\pi _S(R)$}{42}{subsubsection*.91}
+\contentsline {subsubsection}{Union, Intersection and Difference}{43}{subsubsection*.92}
+\contentsline {subsubsection}{Natural Join $R \bowtie S$}{43}{subsubsection*.93}
+\contentsline {subsubsection}{Grouping and Aggregation $\gamma _X(R)$}{43}{subsubsection*.94}
+\contentsline {subsection}{\numberline {5.1.2}Operators and MapReduce}{43}{subsection.5.1.2}
+\contentsline {subsubsection}{Selection}{43}{subsubsection*.95}
+\contentsline {subsubsection}{Projection}{44}{subsubsection*.96}
+\contentsline {subsubsection}{Union}{44}{subsubsection*.97}
+\contentsline {subsubsection}{Intersection}{44}{subsubsection*.98}
+\contentsline {subsubsection}{Difference}{44}{subsubsection*.99}
+\contentsline {subsubsection}{Join}{45}{subsubsection*.100}
+\contentsline {subsubsection}{Grouping and Aggregation}{45}{subsubsection*.101}
+\contentsline {section}{\numberline {5.2}DataSource and DataFrame API}{45}{section.5.2}
+\contentsline {section}{\numberline {5.3}SparkSQL Architecture}{46}{section.5.3}
+\contentsline {chapter}{\numberline {6}Distributed Storage Systems}{48}{chapter.6}
+\contentsline {section}{\numberline {6.1}The CAP Theorem}{48}{section.6.1}
+\contentsline {section}{\numberline {6.2}Amazon Dynamo}{49}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Overview}{49}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Data partitioning and consistent hashing}{49}{subsection.6.2.2}
+\contentsline {subsubsection}{Dynamic membership management}{50}{subsubsection*.105}
+\contentsline {subsubsection}{Load balancing}{50}{subsubsection*.106}
+\contentsline {subsubsection}{Data replication}{50}{subsubsection*.107}
+\contentsline {subsection}{\numberline {6.2.3}Data versioning with Vector Clocks}{50}{subsection.6.2.3}
+\contentsline {subsubsection}{Anatomy of \textit {put} and \textit {get}}{51}{subsubsection*.108}
+\contentsline {subsection}{\numberline {6.2.4}Handling failures with quorums}{51}{subsection.6.2.4}
+\contentsline {subsection}{\numberline {6.2.5}Anti-entropy replica synchronization}{51}{subsection.6.2.5}
+\contentsline {subsection}{\numberline {6.2.6}Gossip membership management}{52}{subsection.6.2.6}
+\contentsline {section}{\numberline {6.3}Apache HBase}{52}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}From RDBMS to NOSQL}{52}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Table, Rows, Columns and Cells}{53}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Automatic Sharding}{54}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}Storage API}{54}{subsection.6.3.4}
+\contentsline {subsection}{\numberline {6.3.5}HBase Implementation}{54}{subsection.6.3.5}
+\contentsline {subsubsection}{Data Storage}{54}{subsubsection*.109}
+\contentsline {subsubsection}{Data lookups}{54}{subsubsection*.110}
+\contentsline {subsubsection}{Write operation}{55}{subsubsection*.111}
+\contentsline {subsubsection}{Data Locality}{55}{subsubsection*.112}
+\contentsline {subsubsection}{Deleting Data}{55}{subsubsection*.113}
+\contentsline {subsubsection}{Read operation}{55}{subsubsection*.114}
+\contentsline {subsubsection}{Compactions}{55}{subsubsection*.115}
+\contentsline {subsection}{\numberline {6.3.6}Architecture}{56}{subsection.6.3.6}
+\contentsline {subsubsection}{Overview}{56}{subsubsection*.117}
+\contentsline {subsubsection}{B+ Trees vs LSM Trees}{56}{subsubsection*.118}
+\contentsline {subsection}{\numberline {6.3.7}Key Design}{57}{subsection.6.3.7}
+\contentsline {subsubsection}{Logical and physical layout of a table}{57}{subsubsection*.120}
+\contentsline {subsubsection}{Time Series Data}{58}{subsubsection*.122}
+\contentsline {section}{\numberline {6.4}Apache Cassandra}{59}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Overview}{59}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Data Partitioning}{59}{subsection.6.4.2}
+\contentsline {subsubsection}{Random Partitioner}{59}{subsubsection*.124}
+\contentsline {subsubsection}{ByteOrdered Partitioner}{59}{subsubsection*.125}
+\contentsline {subsection}{\numberline {6.4.3}Data Replication}{59}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Data Model}{60}{subsection.6.4.4}
+\contentsline {subsection}{\numberline {6.4.5}Read/Write Operations}{60}{subsection.6.4.5}
+\contentsline {subsubsection}{Write request}{60}{subsubsection*.126}
+\contentsline {subsubsection}{Read request}{60}{subsubsection*.127}
+\contentsline {subsection}{\numberline {6.4.6}Consistency}{61}{subsection.6.4.6}
+\contentsline {subsubsection}{Level ONE}{61}{subsubsection*.128}
+\contentsline {subsubsection}{Level QUORUM}{61}{subsubsection*.129}
+\contentsline {subsubsection}{Level ALL}{61}{subsubsection*.130}
+\contentsline {subsubsection}{Level ANY}{61}{subsubsection*.131}
+\contentsline {subsubsection}{Level SERIAL}{61}{subsubsection*.132}
+\contentsline {chapter}{\numberline {7}Coordinating Distributed Systems}{62}{chapter.7}
+\contentsline {section}{\numberline {7.1}Two-phase commit}{62}{section.7.1}
+\contentsline {section}{\numberline {7.2}Paxos}{63}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}A simplified Paxos round}{63}{subsection.7.2.1}
+\contentsline {subsubsection}{Phase 1}{63}{subsubsection*.134}
+\contentsline {subsubsection}{Phase 2}{63}{subsubsection*.136}
+\contentsline {section}{\numberline {7.3}Raft}{63}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Overview}{63}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Elections}{64}{subsection.7.3.2}
+\contentsline {subsubsection}{Election properties}{64}{subsubsection*.137}
+\contentsline {subsection}{\numberline {7.3.3}Operation}{64}{subsection.7.3.3}
+\contentsline {subsection}{\numberline {7.3.4}Failures Handling}{64}{subsection.7.3.4}
+\contentsline {subsubsection}{Leader failure}{64}{subsubsection*.138}
+\contentsline {subsubsection}{Follower failure}{65}{subsubsection*.139}
+\contentsline {subsubsection}{50/50 vote (split majority)}{65}{subsubsection*.140}
+\contentsline {subsubsection}{Network partition}{65}{subsubsection*.141}
+\contentsline {section}{\numberline {7.4}Zoe and ZooKeeper}{65}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Overview}{65}{subsection.7.4.1}
+\contentsline {subsection}{\numberline {7.4.2}Architecture}{65}{subsection.7.4.2}
+\contentsline {subsubsection}{ZAB}{66}{subsubsection*.142}
+\contentsline {subsection}{\numberline {7.4.3}Implementation}{66}{subsection.7.4.3}
+\contentsline {subsubsection}{Consensus}{66}{subsubsection*.143}
+\contentsline {subsubsection}{Configuration Management}{67}{subsubsection*.144}
+\contentsline {subsubsection}{Group Membership}{67}{subsubsection*.145}

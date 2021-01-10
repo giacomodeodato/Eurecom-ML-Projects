@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper,oneside,final,titlepage,openany,onecolumn]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{changepage}
+\usepackage [autostyle]{csquotes}
+\usepackage[raggedright]{titlesec}
+\MakeOuterQuote{"}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{colorlinks, linkcolor=black}
+\newlength{\imgw}
+\newlength{\imgh}
+\setlength{\imgw}{\textwidth}
+\setlength{\imgh}{5cm}
+\newcommand{\image}[1]{\vspace{.5\baselineskip}\par\noindent\begin{adjustbox}{max width=\imgw, max height=\imgh, center}\includegraphics{#1}\end{adjustbox}\par\noindent}
+\usepackage{caption}		% captionof
+\usepackage{amsmath, mathtools}
+\usepackage{makecell}		% makecell
+\begin{document}
+
+\author{notes by Giacomo Deodato}
+\title{Clouds\\ \textbf{Distributed Systems\\and\\Cloud Computing}\\ - Prof. Pietro Michiardi -}
+\date{Fall 2017}
+
+\frontmatter
+\maketitle
+\tableofcontents
+\mainmatter
+\include{./TeX_files/chapter01}
+\include{./TeX_files/chapter02}
+\include{./TeX_files/chapter03}
+\include{./TeX_files/chapter04}
+\include{./TeX_files/chapter05}
+\include{./TeX_files/chapter06}
+\include{./TeX_files/chapter07}
+\backmatter
+% bibliography, glossary and index would go here.
+
+\end{document}

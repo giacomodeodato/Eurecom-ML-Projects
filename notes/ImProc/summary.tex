@@ -1,0 +1,266 @@
+\documentclass[12pt,a4paper,oneside,final,titlepage,openany,onecolumn]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings, lstautogobble}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{changepage}
+
+\lstset{ %
+	backgroundcolor=\color{gray!10!white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{green!50!black},    % comment style
+	morecomment=[l]{\%},
+	deletekeywords={},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%frame=single,                    % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	%language=Matlab,                 % the language of the code
+	morekeywords={for, end},            % if you want to add more keywords to the set
+	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{green!30!black},     % string literal style
+	tabsize=2,                    % sets default tabsize to 2 spaces
+	autogobble=true,      %align left
+	%fontname=\ttfamily
+}
+
+
+\author{Giacomo Deodato}
+\title{Image Processing\\ \textbf{Summary}}
+\date{Fall, 2017}
+\pagenumbering{gobble}
+\usepackage{ragged2e}
+\widowpenalty 10000
+
+\begin{document}
+	\maketitle
+	\section*{Sampling \& Quantization}
+		\paragraph{Image sampling}is the digitization of \textit{(x, y)} coordinates.
+		\paragraph{Grey-level quantization}is the digitization of pixel amplitude.
+		\paragraph{Aliasing}is an effect that causes different signals to become indistinguishable (or aliases of one another) when sampled. It also refers to the distortion or artifact that results when the signal reconstructed from samples is different from the original continuous signal.
+		\newline
+		Aliasing can occur in spatially sampled signals, for instance moiré patterns in digital images. Aliasing in spatially sampled signals is called spatial aliasing.
+		\newline
+		Aliasing is generally avoided by applying low pass anti-aliasing filters to the analog signal before sampling.
+		\paragraph{Interpolation} can be zero-order (replication) or first-order (linear):
+		\[ f(n+a) = (1-a)\cdot f(n)+a\cdot f(n+1),\qquad 0 < a < 1 \]
+		\paragraph{Shannon's theorem}: $f_s > 2 f_N$ establishes a sufficient condition for a sample rate that permits a discrete sequence of samples to capture all the information from a continuous signal of finite bandwidth.
+		\paragraph{Scalar quantization} uses \textit{decision level} ($d_i$, input) to get \textit{reconstruction level} ($r_i$, output):
+		\[ if\ d_i \leq f(x, y) < d_{i+1}\ then\ f_q(x, y) = r_i \]
+	\section*{Histogram}
+		\paragraph{Image histogram} shows the probability density associated to the grey-level \textit{k}: $p(k) = n(k) / N$
+		\paragraph{Histogram equalization} is used to enhance images, it follows the \textit{Khoros routine}: build the histogram and the cumulative histogram (CH); for each grey level \textit{k} do: $k \leftarrow INT(CH(k) \cdot (K - 1) / N)$, where \textit{N}is the number of pixels.
+		\newline
+		The main limitation of this algorithm is it can't take into consideration the position of the pixels.
+		\paragraph{Histogram thresholding} is used to binarize an image (black and white), it corresponds to a 2-levels quantization.
+	\section*{Fourier transform}
+		\[ F(u) = \int_{-\infty}^\infty f(x) e^{-2\pi jux}dx,\qquad F^{-1}(x) = \int_{-\infty}^\infty F(u) e^{2\pi jux}du \]
+		\paragraph{DC value}
+		\[ \bar{f}(x, y) = \dfrac{1}{N^2}\underset{x = 0}{\overset{N - 1}{\sum}}\underset{y = 0}{\overset{N - 1}{\sum}}f(x, y),\qquad F(0, 0) = \dfrac{1}{N}\underset{x = 0}{\overset{N - 1}{\sum}}\underset{y = 0}{\overset{N - 1}{\sum}}f(x, y) \]
+		\[ \bar{f}(x, y) = \dfrac{1}{N}F(0, 0) \]
+		\paragraph{Separability} A 2D Fourier transform can be separated into two 1D Fourier transforms.
+		\paragraph{Display} It is better to display $log(1 + \vert F(u, v)\vert)$ than the normal 2D Fourier transform $\vert F(u, v)\vert$.
+		\paragraph{Spatial and frequency domains} When we translate into the spatial domain, nothing changes in the frequency domain. When we rotate, then also the frequencies rotate. If we zoom, the frequencies scale down but they maintain the same shape.
+	\section*{Filtering}
+		\paragraph{Low and high frequencies} represent respectively uniform areas, and edges and noise.
+		\paragraph{Image filtering} can be performed either via \textit{Fast Fourier Transform} (FFT), by multiplying the Fourier transform of the image and the filter and then reversing the result; or using \textit{convolution}.
+		\newline
+		The relevant parameters are the size fo the kernel used and the value of its coefficients.
+		\subsection*{Low pass spatial filters}
+			\paragraph{Average filter} is a spatial low pass filter that performs image smoothing: it reduces the noise but smooths the edges. The sum of the kernel coefficients must be 1 and they have to be all the same.
+			\paragraph{Median filter} is non linear, it replaces the pixel with the median of the neighbourhood defined by the kernel. It is useful to reduce noise while preserving the edges. Moreover it does not create new values.
+			\paragraph{Wiener filter} tailors itself to the local image variance: when the variance is large, it performs little smoothing; when the variance is small, it performs	more smoothing.
+			This approach often produces better results than linear filtering like averaging, and it is more selective, it preserves edges and other high-frequency	parts of an image.
+			Moreover, it performs better than the median filter because it takes into consideration both the mean and the standard deviation of the neighbourhood of each pixel instead of just the median.
+		\subsection*{High pass spatial filters}
+			\paragraph{Gradient filter} uses the following kernels to get the gradient on the x and y axis and then it sums then.
+			\[ G_x = 
+			\begin{bmatrix}
+				0 & 0 & 0 \\
+				1 & 0 & -1 \\
+				0 & 0 & 0 \\
+			\end{bmatrix}, \qquad
+			G_y =
+			\begin{bmatrix}
+			0 & 1 & 0 \\
+			0 & 0 & 0 \\
+			0 & -1 & 0 \\
+			\end{bmatrix}  \]
+			It is used to detect edges, if the value of the gradient is greater than a threshold value then the point is an edge.
+			\newline
+			Other kernel similar to the gradient are:
+			\[ Prewitt = 
+				\begin{bmatrix}
+					1 & 0 & -1 \\
+					1 & 0 & -1 \\
+					1 & 0 & -1 \\
+				\end{bmatrix}, \qquad
+				Sobel =
+				\begin{bmatrix}
+					1 & 0 & -1 \\
+					2 & 0 & -2 \\
+					1 & 0 & -1 \\
+				\end{bmatrix} \]
+		\paragraph{Laplacian filter} is also used for edge detection, it can use one the following kernels:
+		\[ \begin{bmatrix}
+		0 & 1 & 0 \\
+		1 & -4 & 1 \\
+		0 & 1 & 0 \\
+		\end{bmatrix}\qquad
+		\begin{bmatrix}
+		1 & 1 & 1 \\
+		1 & -8 & 1 \\
+		1 & 1 & 1 \\
+		\end{bmatrix}  \]
+		To detect the edges it is necessary to perform the zero-crossings, an operation that could easily be not precise depending on the slope of the curve.
+		\paragraph{Canny edge detector} has the best results, the algorithm can be broken down to 5 different steps:\newline
+		1. Apply Gaussian filter to smooth the image in order to remove the noise\newline
+		2. Find the intensity gradients of the image\newline
+		3. Apply non-maximum suppression to get rid of spurious response to edge detection\newline
+		4. Apply double threshold to determine potential edges\newline
+		5. Track edge by hysteresis: Finalize the detection of edges by suppressing all the other edges that are weak and not connected to strong edges.
+	\section*{Edge detection steps}
+		\paragraph{Pre-processing}noise reduction: low pass
+		\paragraph{Processing}gradient and thresholding
+		\paragraph{Post-processing}edge thinning and outliers removal
+		\paragraph{Representation and description}hough/radon transform
+	\section*{Hough Transform}
+		\par
+		It was originally designed for line detection but can also be used for other analytical curves.
+		\newline
+		A point in the Hough space (\textit{H}) corresponds to a line in the image space (\textit{I}). A point in \textit{I} corresponds to a sinusoid in \textit{H}.
+		\newline
+		Points on the same line in \textit{I} give curves passing through a common point in \textit{H}. Points on the same curve in \textit{H} give lines passing from the same point in \textit{I}.
+		\newline
+		The Hough transform can work in different ways (we assume to work on a binarized image):
+		\begin{itemize}
+			\item From \textit{m} to 1. Where \textit{m} is the number of pixels from the image. In our case all the couples of points (\textit{m = 2}) in the image are associated to a line and the parameters ($\rho, \theta$) of the line are used to index and increment the value of a point in \textit{H}. If the final value is greater than a given threshold, then the coordinates of that point are the parameters of and edge line.
+			\item From 1 to \textit{m}. Where \textit{m} is the number of curves corresponding to a point. In our case it corresponds to the different slopes of the lines passing from a point. For each non-zero pixel, increment the points in \textit{H} whose coordinates correspond to the parameters of the lines passing to the point.
+			\item From \textit{m} to \textit{n}. Where \textit{m} is number of points from the image and \textit{n} is the number of possible curves passing from them.
+		\end{itemize}
+		\paragraph{Radon transform} is strictly related to Hough transform when doing line detection, we could say that the former is a simplified version of the latter.\newline
+		The main difference between the two transformations is in the mathematical formulation, while the Hough transform is a discrete algorithm, the Radon transform is defined as an integral.
+		The Radon transform is also easier to understand from a conceptual point of view: it projects the whole image over an axis rotating from 0 to 179	degrees. The Hough transform instead takes one or more features (pixels)	from the image and associates it to one or more parametric curves in the Hough space.\newline\par\noindent
+		The sum over any column of the Radon transform is always the same because it corresponds to the amount of information of the image, it is constant because each column contains the entire projection. For example, if we make the Radon transform of an horizontal line we'll notice that the vector corresponding to 0 degrees has uniform distributed values while	the column corresponding to 90 degrees has a unique peak whose value is equal to the sum of all the values of the horizontal projection.
+	\section*{Morphological operators}
+		\paragraph{Set operators} Union, intersection, complement, inclusion and difference.
+		\paragraph{Erosion} Given an object \textit{A} and a structuring element $B_p$:\newline $er(A, B_p) = \{ p \vert B_p \subset A \}$.
+		\paragraph{Dilatation} Given an object \textit{A} and a structuring element $B_p$:\newline $dil(A, B_p) = \{ p \vert B_p\cap A\neq \varnothing \}$.
+		\paragraph{Opening} $dil(er(A, B_p), B_p)$, it cuts narrow isthmus, remove small islands and narrow capes.
+		\paragraph{Closing} $er(dil(A, B_p), B_p)$, it fills narrow canals, removes small lakes and narrow gulfs.
+		\paragraph{Properties} They are translation invariant. Erosion and dilatation are not the inverse of each other but the dual: $dil(A, B_p) = (er(A^c, B_p))^c$.
+	\section*{Local Binary Pattern} 
+		\par LBP is a gradient based descriptor (differences are more relevant than the value of the pixel itself). It is widely used to compare face images by comparing their LBP histograms. To build the histogram we calculate the LBP codes from the original image by analysing the differences between a pixel and its neighbourhood. Then we do quantization by cutting the LSBs of the code and we represent these on the histogram.
+	\section*{Quad tree: split \& merge segmentation}
+		\par
+		The process to build a quad tree goes trough two main steps: split and merge.
+		\newline
+		During the split we divide the picture into smaller and smaller areas until reaching a given uniformity criterion. Each region is divided into smaller region if a its test value is greater than a given threshold. The test value is build by dividing for the cardinality of the region the sum of the squared differences between the value of each pixel and the average value of the region.
+		\newline
+		During the merge phase we merge neighbouring areas according to a similarity criterion. The similarity is calculated as the sum of the squared differences between each point inside the regions to be merged and the mean value of all the points of the two regions.
+	\section*{Optical flow}
+		\par
+		The optical flow, or apparent motion field, is the relative motion between an observer and the scene. It is calculated in a two step process.
+		\subsubsection*{Local estimation}
+		\par
+		Calculate the displacement $d_i = (d_x, d_y)$ for each pixel $p_i = (x_i, y_i)$, where $d_x = x_i' - x_i$ for each pixel in the image.
+		\newline
+		To start the procedure we need to suppose that the luminance of a pixel is constant over time. Assuming that $\delta x$ and $\delta y$ are small, we can write:
+		\[ I(x, y, t) = I(x +\delta x, y + \delta y, t + \delta t)\]
+		We can develop the second term with Taylor series:
+		\[ I(x +\delta x, y + \delta y, t + \delta t) = I(x, y, t) +\dfrac{\partial I}{\partial x}\delta x  + \dfrac{\partial I}{\partial y}\delta y  + \dfrac{\partial I}{\partial t}\delta t + H.O.T. \]
+		\[ \dfrac{\partial I}{\partial x}\delta x  + \dfrac{\partial I}{\partial y}\delta y  + \dfrac{\partial I}{\partial t}\delta t = 0, \qquad \dfrac{\partial I}{\partial x}V_x  + \dfrac{\partial I}{\partial y}V_y = -\dfrac{\partial I}{\partial t}\]
+		The final equation is the relation between spatial and temporal gradients, but it is an equation in two variables, therefore we need to compute $V_x$ and $V_y$ by means of an iterative process that will lead to:
+		\[ d^{(i + 1)} = d^{(i)}(p, t) - \epsilon\cdot sign(DFD(p, t, d^{(i)}))\cdot sign(\triangledown I(x - d^{(i)}_x, y - d^{(i)}_y, t - 1 )) \]
+		\subsubsection*{Global interpretation}
+			\par
+			Finally we'll be able to interpolate the linear equation for the displacement of all the pixels. From this equation the slope is the \textit{zoom factor}, if it is close to 1, then there is no zoom, else, if it is very smaller than 1 there is a backward zoom, otherwise there is a forward zoom.
+			\newline
+			Furthermore, the two components of the known term of the equation will give us the vertical and horizontal pan of the image, that are the mean displacement of all the pixels.
+	\section*{Depth cameras (RGB-D)}
+		\paragraph{Stereo setup}
+		\par\noindent\newline Passive system.\newline
+		Two calibrated cameras.\newline
+		Find points match between two images and triangulate to estimate the distance.\newline
+		Not very precise and not reliable in presence of textured surfaces.
+		\paragraph{Time of flight}
+		\par\noindent\newline Measures light pulses (IR) round trip from emitter to object to sensor, pulses generation is hard to achieve but there are different modulation techniques available.\newline
+		Resolution depends on time measure precision (high accuracy required and integration time disadvantages).\newline
+		Indoor and outdoor (errors due to light scattering).\newline
+		\paragraph{Structured light}
+		\par\noindent\newline Measures distortion in a pattern of IR projected over the scene.\newline
+		Very fast but short depth range.\newline
+		Only indoor.
+		\paragraph{Light field}
+		\par\noindent\newline Passive system.\newline
+		Find the direction where the light is from.\newline
+		Sensible to light variations.\newline
+		Indoor and outdoor.
+	\section*{Stereo}
+		\paragraph{Internal parameters} are the focal length \textit{f} and the projection of the optical centre in the image plane, \textit{c(0, 0, f)}.
+		\paragraph{External parameters} are translation and rotation, the camera pose and orientation.
+		\paragraph{Disparity} is the difference of projected positions into the left and right images.\newline
+		From the internal parameters we can link a point in the scene to a point in the image, from disparity we can derive depth under the assumption that the two cameras are parallel.
+		\[ \begin{cases}
+			x = f \dfrac{X}{Z} \\
+			y = f \dfrac{Y}{Z}
+			\end{cases}
+			\qquad
+			\begin{cases}
+			x_r - x_l = f \dfrac{B}{Z},\qquad B:\ baseline \\
+			y_r = y_l
+			\end{cases}  \]
+		\paragraph{Epipolar geometry} defines the segment where, given a point on the left image, is possible to find it on the right one. The segment goes from $E_l$, the intersection between the line $C_l-C_r$ and the left image plane, to $p_l$, the position of the point \textit{P} in the left image.
+	\section*{The human eye}
+		\paragraph*{The retina} is a membrane on the inner wall of the eyeball, it receives the image and converts it to nerve impulses.
+		\paragraph*{The fovea} at the center of the retina, is the region of highest visual activity and cone density.
+		\paragraph*{Rods and cones} are the photosensitive cells in the retina. Rods are sensitive to brightness while cones are sensitive to colours. The cones predominate in the fovea and the rods are at the periphery of the vision. Color sensitivity is given by three type of cones. Depending on the frequency they detect, they are called red (L) 64\%, green (M) 32\% and blue (S) 4\%.
+	\section*{Colorimetry}
+		\paragraph{Color perception} depends on:\newline
+		1. Illumination source\newline
+		2. How the object absorbs light\newline
+		3. Characteristics of human eyes\newline
+		4. Color interpretation of the human brain
+		\paragraph{Light spectrum} visible to the human eye goes from 780 nm to 380 nm of wavelength. The wavelength determines the colour and the amplitude determines the brightness.
+		\paragraph{Additive color mixing} uses RGB as primary colors and YCM as secondary ones. Starting from black it adds lights to create colors, used in television. It exploits Grassman's laws.
+		\paragraph{Subtractive color mixing} uses YCM as primary colors and RGB as secondary ones. It starts from white, used in printers with an auxiliary black.
+		\paragraph{White balance} is a technique used with color correction to get better colors from a digital image.
+		\paragraph{Bayer interpolation} is an arrangement of color filters where there are more G. R and B values are interpolated from the nearest neighbours.
+		\paragraph{Colormaking attributes} are: the hue (color), lightness or brightness or value (perceptual response to luminance), chroma or saturation (purity of hue).
+	\section*{Color models}
+		\paragraph{Munsell} uses a visual approach, the central column represents the color value, each arm radiating from the central column represent a hue and along each arm, from the center to the outer limit there is the chroma.
+		\paragraph{RGB} model uses a physical approach. The color space can be represented as a cube which is then cut by the plane R + G + B = 1 (forming the Maxwell triangle). Colors are expressed as a mixture of red, green and blue but, in some cases, the red value has to be negative. Moreover this model is not very intuitive, it is not easy to determine RGB values from a color, and it is perceptually non linear.
+		\paragraph{HSV / HLS} are color models that transform the RGB model in order to describe colors in terms more natural to an artist (a cone). Value and lightness are not the same thing (also, value = sqrt(luminance)).
+		\paragraph{XYZ} model is a transformation of RGB defined to describe the full space of perceptible colors without the negative values problem.\newline
+		Colors are indexed using \textit{x} and \textit{y}, while \textit{Y} is used fro the brightness. To pass from xyY to color space the following transformation is used:
+		\[
+		\begin{cases}
+			x = \dfrac{X}{X + Y * Z} \\
+			y = \dfrac{Y}{X + Y * Z} \\
+			z = \dfrac{Z}{X + Y * Z}
+		\end{cases}
+		\]
+		Inside the \textit{gamut} (section of the colors prism) we change the saturation while moving on the border we change the hue. It is also possible to define dominant and complementary wavelengths and to do additive color mixing.\newline
+		Inside the gamut are defined the Mac Adam's ellipses which define regions where color differences are not perceivable because fo the scales of the chromaticity diagram are not uniform.\newline
+		In order to solve this problem we can transform the coordinates according to the Uniform Chromaticity Scale (UCS).
+		\paragraph{Lab} model is a perceptually uniform space where L is luminosity, a is the red/green axis and b is the yellow/blue axis
+		\paragraph{YIQ} is a color model used for TV. Y encodes luminance while I and Q encode the color. More bits are used to encode Y since people are more sensitive to the luminance variations.
+		\paragraph{YCrCb} is a standard color model where Y is a linear combination of RGB, Cr = R - Y and Cb = B - Y.
+		
+		
+\end{document}
